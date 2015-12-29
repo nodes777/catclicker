@@ -1,13 +1,12 @@
-$(document).ready(function(){
 
 //model
 
 function cat(name, img, id, clicks)
 {
-   this.name=name;
-   this.img=img;
+   this.name = name;
+   this.img = img;
    this.id = id;
-   this.clicks=clicks;
+   this.clicks = clicks;
 }
 var cats = [
 Carly = new cat("Carly","img/cat.jpg","cat1",0),
@@ -23,7 +22,9 @@ console.log(cats);
 //octopus
 
 //view
+var catList = document.getElementById("catList");
+var catNode = document.createElement("li");
+for(i=0; i< cats.length; i++){
+  var catList = document.createElement("li");
+}
 
-
-
-});
