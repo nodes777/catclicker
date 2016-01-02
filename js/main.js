@@ -67,7 +67,7 @@ $(function(){//on click, switches the featured cat
 });
 
 
-  $("#featuredCat").click(function() {
+  $(".featuredCat").click(function() {
       // $(this).clicks++;
-       console.log("this");
-    });
+       console.log("click");
+    });//
