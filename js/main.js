@@ -22,20 +22,29 @@ console.log(Carly);
 console.log(cats);
 
 //octopus: Should start rendering
+showFirstCat(cats);
+
+//clicking featured cat increases click count
+  
 
 
 
-//view 1: List of Cats
+
+//view 1: List of Cats and gets their attributes
 var catList = document.getElementById("catList");
 for(i=0; i< cats.length; i++){
   var catLi = document.createElement("p");
   var node = document.createTextNode(cats[i].name);
+  catLi.setAttribute("id", cats[i].id);
+  catLi.setAttribute("class", "catClass");
+  catLi.setAttribute("img", cats[i].img);
+  catLi.setAttribute("clicks", cats[i].clicks);
   catLi.appendChild(node);
   catList.appendChild(catLi);
 }
 
 //View 2: Featured Cat
-function showFirstCat(cats) {
+function showFirstCat(cats) {//shows first cat when page is loaded
   var featuredCat = document.getElementById("featuredCat")
   var catPic = document.createElement("img");
   catPic.setAttribute('src', cats[0].img);
@@ -43,4 +52,22 @@ function showFirstCat(cats) {
   catPic.setAttribute("height", "300");
   featuredCat.appendChild(catPic);
 }
-showFirstCat();
+
+$(function(){//on click, switches the featured cat
+    $(".catClass").click(function() {
+       // alert($(this).attr("id"));
+       var nextCatPic = document.createElement("img");
+       nextCatPic.setAttribute('src', $(this).attr('img'));
+       nextCatPic.setAttribute("width", "400");
+       nextCatPic.setAttribute("height", "300");
+       nextCatPic.setAttribute("class", "featuredCat");
+       nextCatPic.setAttribute("id", "featuredCat");
+        $( ".featuredCat" ).replaceWith( nextCatPic);
+    });
+});
+
+
+  $("#featuredCat").click(function() {
+      // $(this).clicks++;
+       console.log("this");
+    });
